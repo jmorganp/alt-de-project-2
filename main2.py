@@ -222,12 +222,13 @@ def get_row_data(json_data: dict) -> tuple[dict, dict]:
         name_split = payload_dict['created_by_name'].split(' ')
     split_len = len(name_split)
     if split_len in [3, 4]:
+        titles = ['Dr.', 'Mr.', 'Mrs.', 'Ms.']
+        suffixes = ['PhD', 'MD', 'DDS', 'DVM', 'IV', 'Jr.', 'II']
         if split_len == 4:
             payload_dict['prefix'] = name_split[0]
             payload_dict['suffix'] = name_split[3]
             payload_dict[fn] = f'{name_split[1]} {name_split[2]}'
         else:
-            titles = ['Dr.', 'Mr.', 'Mrs.', 'Ms.']
             if name_split[0] in titles:
                 payload_dict['prefix'] = name_split[0]
                 payload_dict[fn] = f'{name_split[1]} {name_split[2]}'
