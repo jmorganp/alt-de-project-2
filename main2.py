@@ -157,7 +157,7 @@ def get_field_names(schema: dict) -> tuple[list, list]:
     - The second list represents metadata fields for the CSV header.
     """
     # retrieve fields for CSV header from JSON schema
-    schema_copy = schema.copy()  # copy dict to prevent modification of\ referenced dict argument
+    schema_copy = schema.copy()  # copy dict to prevent modification of referenced dict argument
     payload_fields = []
     metadata_fields = []
 
@@ -180,7 +180,6 @@ def get_field_names(schema: dict) -> tuple[list, list]:
         payload_fields.insert(created_by_name_index, f1)
         payload_fields.insert(created_by_name_index + 2, f2) 
 
-    
     return payload_fields, metadata_fields
 
 
